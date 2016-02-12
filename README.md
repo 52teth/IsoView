@@ -20,17 +20,15 @@ source("https://bioconductor.org/biocLite.R")
 biocLite()
 biocLite("BiocUpgrade")
 
-## install IsoView
+## install IsoView, set force=TRUE if you need to update
 library("devtools")
-install_github("Magdoll/IsoView")
+install_github("Magdoll/IsoView", force=TRUE)  
 ```
 
 To use it:
 
 ```
 library(IsoView)
-library(rtracklayer)
-
-
+visualize('test.gff', 5, out_png='test.png', out_report='test.report.txt')
 ```
 
