@@ -59,6 +59,9 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
             set.seed(1337)
             cluster = clust$cluster
             indx = order(cluster)
+            
+            print(colnames(mat))
+            print(cluster)
       }
       else{
             cluster=grouping
