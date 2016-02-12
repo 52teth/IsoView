@@ -6,12 +6,12 @@
 #' @param gff The file path to the gff path storing all
 #' the transcripts of interest.
 #' @param clust_count The number of clusters to sort into.
-#' @param file The output png file path. Defaults to "plot.png"
+#' @param file The output png file path. Defaults to "isoview_out.png"
 #' @export
 #' @examples
 #' visualize()
 #' 
-visualize = function(gff, clust_count, file="plot.png", customGrouping=F, grouping=NULL){
+visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="isoview_out.txt", customGrouping=F, grouping=NULL){
       require("stringr"); require("rtracklayer"); require("GenomicRanges")
       gr = import.gff(gff)
       gr_exon = gr[gr$type=="exon"]
@@ -66,7 +66,7 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
       }
       
       print(paste(Sys.time(), ": plotting")); flush.console()
-      png(file, width = num_bins*80, height=length(indx)*15)
+      png(out_png, width = num_bins*80, height=length(indx)*15)
       par(mar=rep(5,4))
       plot(c(0, num_bins), c(0, length(indx)), ty="n", xaxt="n", yaxt="n", ylab="", xlab="", main="Transcript Isoform Visualization")
       rect(xleft=0:(num_bins-1), xright=1:num_bins, ytop=0, ybot=-1) #, col=(gr_tract$type=="exon")+2)
@@ -94,8 +94,10 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
 
       # printing the groups
       nn <- names(gr_list_input)
+      df <- data.frame(transcript_id=nn, cluster=cluster);
       for (i in 1:clust_count) {
             print(paste("group", i))
             print(nn[which(cluster==i)])
       }
+      write.table(df, out_report)
 }
