@@ -31,7 +31,8 @@ visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="is
       gr_intron = GenomicRanges::setdiff(GRanges(seqname=chr, ranges = IRanges(start(gr_base), end(gr_base))), gr_subject)
       num_bins = length(gr_intron) + length(gr_subject)
       gr_exons = gr_subject; gr_exons$type = "exon"
-      gr_introns = gr_intron; gr_introns$type="intron"
+      gr_introns = gr_intron; 
+      if (length(gr_introns) > 0) { gr_introns$type="intron" }
       gr_tract = c(gr_exons, gr_introns)
       gr_tract = gr_tract[order(start(gr_tract))]
       
