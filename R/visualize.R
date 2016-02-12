@@ -59,9 +59,6 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
             set.seed(1337)
             cluster = clust$cluster
             indx = order(cluster)
-            
-            print(colnames(mat))
-            print(cluster)
       }
       else{
             cluster=grouping
@@ -94,7 +91,11 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
       text(x = num_bins*16/15, y = 0:(length(indx)+1)-0.5, pos=4, cex=0.8, labels=c(sum(width(gr_tract)), widths, "Width"))
       dev.off()
       print(paste(Sys.time(), ": done")); flush.console()
-      print(cluster)
-      print(colnames(mat))
-      print(rownames(mat))
+
+      # printing the groups
+      nn <- names(gr_list_input)
+      for (i in 1:clust_count) {
+            print(paste("group", i))
+            print(nn[which(cluster==i)])
+      }
 }
