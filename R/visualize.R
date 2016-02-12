@@ -15,8 +15,8 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
       require("stringr"); require("rtracklayer"); require("GenomicRanges")
       gr = import.gff(gff)
       gr_exon = gr[gr$type=="exon"]
-      gr_list_input = split(gr_exon, gr_exon$group)
-      isoform_count = length(unique(gr_exon$group))
+      gr_list_input = split(gr_exon, gr_exon$transcript_id)
+      isoform_count = length(unique(gr_exon$transcript_id))
       
       print(paste(Sys.time(), ": preprocessing")); flush.console()
       cov = base::as.vector(GenomicRanges::coverage(gr_exon)[[1]])
