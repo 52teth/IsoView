@@ -99,5 +99,5 @@ visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="is
             print(paste("group", i))
             print(nn[which(cluster==i)])
       }
-      write.table(df, out_report)
+      write.table(df, out_report, quote=FALSE, row.names=FALSE)
 }
