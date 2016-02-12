@@ -91,4 +91,5 @@ visualize = function(gff, clust_count, file="plot.png", customGrouping=F, groupi
       text(x = num_bins*16/15, y = 0:(length(indx)+1)-0.5, pos=4, cex=0.8, labels=c(sum(width(gr_tract)), widths, "Width"))
       dev.off()
       print(paste(Sys.time(), ": done")); flush.console()
+      cluster
 }
