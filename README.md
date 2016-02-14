@@ -88,3 +88,33 @@ Iso9	1
 
 Cluster #1 is black, #2 is red, then green and blue (so it starts from the bottom counting up).
 
+
+### Extracting the groups into separate GFFs
+
+Again, I'm a R rookie, but here's something I would do after I get the clusters.
+
+```
+library(rtracklayer)
+
+# I had to add the group attribute to the GFF object for the write out to display correctly on IGV
+gff <- import.gff('suppEid_FMR1.collapsed.gff')
+gff$group <- paste("transcript_id ", '"', gff$transcript_id, '";', sep='')
+
+
+x <- read.table('isoview_out.txt',sep='\t', header=T)
+gff1 <- subset(gff, transcript_id %in% x[x$cluster==1,"transcript_id"])
+export.gff(gff1, "cluster1.gff")
+gff2 <- subset(gff, transcript_id %in% x[x$cluster==2,"transcript_id"])
+export.gff(gff2, "cluster2.gff")
+gff3 <- subset(gff, transcript_id %in% x[x$cluster==3,"transcript_id"])
+export.gff(gff3, "cluster3.gff")
+gff4 <- subset(gff, transcript_id %in% x[x$cluster==4,"transcript_id"])
+export.gff(gff4, "cluster4.gff")
+```
+
+Now I can import this into IGV and visualize it with the common introns displayed:
+
+![](https://dl.dropboxusercontent.com/u/47842021/wiki_transcriptome/IsoView_example/Screenshot%202016-02-13%2017.55.31.png)
+
+
+
