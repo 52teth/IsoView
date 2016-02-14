@@ -5,7 +5,9 @@ Visualization and clustering of DNA transcript data
 
 IsoView is a program that [Jack Fu](http://jfubiostats.com/) developed while he was a contractor at PacBio in summer 2015. Specifically, I asked Jack to help me automatically cluster isoforms into groups in a single gene. 
 
-With Iso-Seq, particularly in targeted sequencing, we often see a lot of isoforms, sometimes up to the hundreds, and it was becoming hard to see if particular exon skipping patterns were present. Furthermore, I wanted to remove all the long introns that were always spliced out in the visualization. So I asked Jack to create IsoView so help with that.
+With Iso-Seq, particularly in targeted sequencing, we often see a lot of isoforms, sometimes up to the hundreds, and it was becoming hard to see if particular exon skipping patterns were present. Furthermore, I wanted to remove all the long introns that were always spliced out in the visualization. So I asked Jack to create IsoView so help with that. The clusters are created by doing a Kmeans clustering where the distances are the similarities in shared exons between the isoforms. 
+
+The tool is pretty simple but has helped in our targeted Iso-Seq projects. If you have any ideas for improving it, please let us know!
 
 
 ## Getting it to run on R
