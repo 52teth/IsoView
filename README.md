@@ -1,3 +1,5 @@
+Last Updated: 02/14/2016
+
 # IsoView
 Visualization and clustering of DNA transcript data
 
@@ -119,4 +121,6 @@ Now I can import this into IGV and visualize it with the common introns displaye
 ![](https://dl.dropboxusercontent.com/u/47842021/wiki_transcriptome/IsoView_example/Screenshot%202016-02-13%2017.55.31.png)
 
 
+This sample data is a subset of isoforms taken from this paper: [Tassone et al., "Differential increases of specific FMR1 mRNA isoforms in premutation carriers", *J Med Genet (2015)*](http://www.ncbi.nlm.nih.gov/pubmed/25358671). Figure 5 shows a manual grouping of the isoforms. You can see that IsoView mostly replicated the human groupings --- it split group C (Iso9, 19, 7, 8, 17, 18) into cluster #1 and #2, but put all of group D into cluster #3 and clusterA into cluster #4. I don't think IsoView is intended to completely automate the grouping process, rather, it helps researchers inspect the difference in each groups, which they can then further refine those definitions.
 
+I have used IsoView in my own projects where I then followed up with manual definitions of groupings. Right now those scripts are in Python but I will see if I can put them up as R scripts later. 
