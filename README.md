@@ -29,6 +29,9 @@ To use it:
 
 ```
 library(IsoView)
-visualize('test.gff', 5, out_png='test.png', out_report='test.report.txt')
+visualize('test.gff', clust_count=5, out_png='test.png', out_report='test.report.txt')
 ```
+
+You will need to provide the number of clusters `clust_count`. The output figure will be drawn and the transcript cluster membership will be written to the report file.
+
 
