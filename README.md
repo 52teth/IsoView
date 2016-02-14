@@ -35,3 +35,21 @@ visualize('test.gff', clust_count=5, out_png='test.png', out_report='test.report
 You will need to provide the number of clusters `clust_count`. The output figure will be drawn and the transcript cluster membership will be written to the report file.
 
 
+### Input GFF requirement
+
+The input GFF should be in the following format. Most importantly, there must be a unique **transcript_id** for each transcript. Otherwise the code will break. 
+
+```
+chrX	PacBio	transcript	147014204	147030361	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147014204	147014282	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147018023	147018132	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147018985	147019119	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147022095	147022181	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147026463	147026571	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147027054	147027136	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+chrX	PacBio	exon	147030203	147030361	.	+	.	gene_id "Iso1"; transcript_id "Iso12";
+```
+
+
+### Running through an example
+
