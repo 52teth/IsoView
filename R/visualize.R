@@ -89,7 +89,7 @@ visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="is
       }
       par(xpd=NA)
       nn <- names(gr_list_input)
-      text(x = -(num_bins)/15, y = 0:(length(indx))-0.5, pos=3, cex=0.8, labels= strtrim(nn[indx], 10))
+      text(x = -(num_bins)/15, y = 0:(length(indx))-0.5, pos=3, cex=0.8, labels= c(strtrim(nn[indx], 10), "Name"))
       text(x = num_bins*16/15, y = 0:(length(indx)+1)-0.5, pos=4, cex=0.8, labels=c(sum(width(gr_tract)), widths, "Length"))
       dev.off()
       print(paste(Sys.time(), ": done")); flush.console()
