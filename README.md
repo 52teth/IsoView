@@ -66,7 +66,7 @@ The output figure should look like this:
 
 And the report file shows the clustering result:
 
-'''
+```
 transcript_id	cluster
 Iso1	4
 Iso10	3
@@ -84,7 +84,7 @@ Iso3	4
 Iso7	2
 Iso8	2
 Iso9	1
-'''
+```
 
 Cluster #1 is black, #2 is red, then green and blue (so it starts from the bottom counting up).
 
