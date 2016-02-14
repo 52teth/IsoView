@@ -53,3 +53,15 @@ chrX	PacBio	exon	147030203	147030361	.	+	.	gene_id "Iso1"; transcript_id "Iso12"
 
 ### Running through an example
 
+We will use the example [GFF file](https://github.com/Magdoll/IsoView/blob/master/example/suppEid_FMR1.collapsed.gff):
+
+```
+library(IsoView)
+visualize('suppEid_FMR1.collapsed.gff', clust_count=4, out_png='test.png', out_report='test_report.txt')
+```
+
+The output figure should look like this:
+
+![](https://dl.dropboxusercontent.com/u/47842021/wiki_transcriptome/IsoView_example/isoview_out.png)
+
+
