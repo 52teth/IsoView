@@ -67,7 +67,7 @@ visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="is
       }
       
       print(paste(Sys.time(), ": plotting")); flush.console()
-      png(out_png, width = num_bins*80, height=length(indx)*15)
+      png(out_png, width = max(800,num_bins*80), height=max(length(indx)*15,600))
       par(mar=rep(5,4))
       plot(c(0, num_bins), c(0, length(indx)), ty="n", xaxt="n", yaxt="n", ylab="", xlab="", main="Transcript Isoform Visualization")
       rect(xleft=0:(num_bins-1), xright=1:num_bins, ytop=0, ybot=-1) #, col=(gr_tract$type=="exon")+2)
