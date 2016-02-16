@@ -11,7 +11,7 @@
 #' @examples
 #' visualize()
 #' 
-visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="isoview_out.txt", customGrouping=F, grouping=NULL){
+visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="isoview_out.txt", customGrouping=F, grouping=NULL, random_seed=1337){
       require("stringr"); require("rtracklayer"); require("GenomicRanges")
       gr = import.gff(gff)
       gr_exon = gr[gr$type=="exon"]
@@ -56,8 +56,8 @@ visualize = function(gff, clust_count, out_png="isoview_out.png", out_report="is
                   }
             }
             distance=out
+            set.seed(random_seed)
             clust = kmeans(distance, clust_count)
-            set.seed(1337)
             cluster = clust$cluster
             indx = order(cluster)
       }
